@@ -1,14 +1,124 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>calculator</title>
-  <link rel="stylesheet" href="style.css">
+  <title>🧮 מחשבון</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #222;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 50px 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.light-mode {
+      background-color: #f2f2f2;
+      color: #000;
+    }
+
+    body.light-mode .calculator {
+      background: #fff;
+      color: #000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .calculator {
+      background: #333;
+      padding: 20px;
+      border-radius: 16px;
+      display: inline-block;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 24px;
+      margin-bottom: 15px;
+      text-align: right;
+      border: none;
+      border-radius: 8px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+      transition: background 0.2s;
+    }
+
+    .buttons button,
+    button {
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      font-size: 20px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: #444;
+      color: white;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    button:hover {
+      background-color: #666;
+      transform: scale(1.05);
+    }
+
+    body.light-mode button {
+      background-color: #ddd;
+      color: #000;
+    }
+
+    body.light-mode button:hover {
+      background-color: #bbb;
+    }
+
+    #error {
+      margin-top: 15px;
+      color: #ff4c4c;
+      font-weight: bold;
+    }
+
+    #history {
+      margin-top: 20px;
+      max-height: 120px;
+      overflow-y: auto;
+      font-size: 14px;
+      color: #ccc;
+      padding: 5px;
+      border-top: 1px solid #555;
+    }
+
+    body.light-mode #history {
+      color: #444;
+      border-top: 1px solid #ccc;
+    }
+
+    #toggleTheme {
+      width: 200px;
+    }
+
+    #DPM {
+      margin-top: 20px;
+      background-color: crimson;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    #DPM:hover {
+      background-color: darkred;
+      transform: rotate(-2deg) scale(1.1);
+    }
+  </style>
 </head>
 <body>
   <div class="calculator">
-    <h1>🧠calculator</h1>
+    <h1>🧠 מחשבון</h1>
+
     <input type="text" id="display" disabled />
+
     <div class="buttons">
       <button onclick="press('1')">1</button>
       <button onclick="press('2')">2</button>
@@ -35,23 +145,14 @@
       <button onclick="calculate()">=</button>
     </div>
 
-    <button onclick="toggleTheme()" id="toggleTheme">🌓 toggleTheme</button>
+    <button onclick="toggleTheme()" id="toggleTheme">🌓 מצב כהה/בהיר</button>
     <p id="error"></p>
     <div id="history"></div>
+
+    <button id="DPM" onclick="DPM()">🔴 אל תלחץ עליי!</button>
+    <audio id="fbi-audio" src="https://www.myinstants.com/media/sounds/fbi-open-up.mp3"></audio>
   </div>
 
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-<button id="DPM" onclick="DPM()">dont press me!</button>
-  <audio id="fbi-audio" src="https://www.myinstants.com/media/sounds/fbi-open-up.mp3"></audio>
   <script src="JavaScript.js"></script>
 </body>
 </html>
